@@ -38,7 +38,6 @@ const ExpenseForm = ({
       </div>
       <button type="submit" className="btn">
         {edit ? "edit" : "submit"}
-        {/* submit  */}
         <MdSend className="btn-icon" />
       </button>
     </form>
