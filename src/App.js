@@ -97,7 +97,8 @@ function App() {
   return (
     <>
       {alert.show && <Alert type={alert.type} text={alert.text} />}
-      <h1>budget calculator</h1>
+      <h3>Expense calculator</h3>
+      <div className="All">
       <main className="App">
         <ExpenseForm
           handleSubmit={handleSubmit}
@@ -107,6 +108,18 @@ function App() {
           handleAmount={handleAmount}
           edit={edit}
         />
+      <h1>
+        Total expenditure
+        <h2>₹</h2>
+        <span className="total">
+        
+          {expenses.reduce((acc, curr) => {
+            return (acc += curr.amount);
+          }, 0)}
+        </span>
+      </h1>
+        </main>
+        <main className="List">
         <ExpenseList
           expenses={expenses}
           handleDelete={handleDelete}
@@ -114,15 +127,7 @@ function App() {
           clearItems={clearItems}
         />
       </main>
-      <h1>
-        total spending :
-        <span className="total">
-          $
-          {expenses.reduce((acc, curr) => {
-            return (acc += curr.amount);
-          }, 0)}
-        </span>
-      </h1>
+      </div>
     </>
   );
 }
